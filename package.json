@@ -4,7 +4,7 @@
   "title": "Javascript Graph Datastructure",
   "homepage": "https://github.com/mhelvens/graph.js",
   "description": "a javascript library for storing arbitrary data in mathematical (di)graphs, as well as traversing and analyzing them in various ways (ECMAScript 6 Ready)",
-  "main": "dist/graph.es6.js",
+  "main": "lib/graph.es6.js",
   "author": "Michiel Helvensteijn <mhelvens@gmail.com> (http://mhelvens.net)",
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
   "scripts": {
     "pp": "npm run build && npm run docs && npm run test",
     "build": "mkdir -p dist && cp src/graph.es6.js dist && webpack && uglifyjs dist/graph.js -mo dist/graph.min.js --in-source-map dist/graph.js.map --source-map dist/graph.min.js.map && uglifyjs dist/graph.full.js -mo dist/graph.full.min.js --in-source-map dist/graph.full.js.map --source-map dist/graph.full.min.js.map",
+    "compile": "babel --optional runtime -d lib/ src/",
     "test": "karma start",
     "test-ci": "karma start ./karma.ci.conf.js",
     "docs": "jsdoc2md src/**/*.es6.js -t docs/README.md.hbs -d 3 --partial \"./docs/partials/**/*.hbs\" --separators -l JavaScript > README.md"
